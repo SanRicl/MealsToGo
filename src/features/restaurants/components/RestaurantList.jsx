@@ -1,4 +1,3 @@
-import { Text, View, StyleSheet } from 'react-native';
 import styled from 'styled-components/native';
 import RestaurantInfoCard from './RestaurantInfoCard';
 
