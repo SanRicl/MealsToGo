@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import RestaurantInfoCard from './RestaurantInfoCard';
 
 const Area = styled.View`
-  background: #0000ff;
+  background: #fff;
   flex: 1;
   padding: 3%;
 `;
@@ -26,7 +26,7 @@ const RestaurantList = () => {
   return (
     <Area>
       {restaurant.map((item, index) => (
-        <RestaurantInfoCard data={item} index={index} />
+        <RestaurantInfoCard data={item} key={index}/>
       ))}
     </Area>
   );
