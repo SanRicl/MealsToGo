@@ -4,7 +4,7 @@ import { Searchbar } from 'react-native-paper';
 import styled from 'styled-components/native';
 
 const Area = styled.View`
-  padding: 3%;
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 const SearchBar = () => {
