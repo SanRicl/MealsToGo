@@ -6,6 +6,7 @@ import star from '../../../../assets/star';
 import open from '../../../../assets/open';
 import { Text, Image } from 'react-native';
 import { View } from 'react-native';
+import Spacer from './spacer/Spacer';
 
 const Title = styled.Text`
   color: ${(props) => props.theme.colors.text.primary};
@@ -72,10 +73,12 @@ const RestaurantInfoCard = ({ data }) => {
                 CLOSED TEMPORARILY
               </Text>
             )}
-            <View style={{ paddingLeft: 16 }} />
-            {data.isOpenNow && <Open xml={open} width={20} height={20} />}
-            <View style={{ paddingLeft: 16 }} />
-            <Image style={{ width: 15, height: 15 }} source={{ uri: data.icon }} />
+            <Spacer position="left" size="large">
+              {data.isOpenNow && <Open xml={open} width={20} height={20} />}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <Image style={{ width: 15, height: 15 }} source={{ uri: data.icon }} />
+            </Spacer>
           </SectionEnd>
         </Section>
         <Address>{data.address}</Address>
