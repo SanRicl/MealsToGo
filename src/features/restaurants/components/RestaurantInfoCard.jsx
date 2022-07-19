@@ -1,11 +1,9 @@
 import React from 'react';
 import { Card } from 'react-native-paper';
-import { SvgXml } from 'react-native-svg';
 import styled from 'styled-components/native';
-import star from '../../../../assets/star';
-import open from '../../../../assets/open';
-import { Text, Image } from 'react-native';
-import { View } from 'react-native';
+import star from '../../../../assets/star.png';
+import open from '../../../../assets/open.png';
+import { Text } from 'react-native';
 import Spacer from './spacer/Spacer';
 
 const Title = styled.Text`
@@ -48,7 +46,12 @@ const Section = styled.View`
   align-items: center;
   justify-content: space-between;
 `;
-const Open = styled(SvgXml)``;
+
+const Icon = styled.Image`
+  width: 20px;
+  height: 20px;
+`;
+
 
 const RestaurantInfoCard = ({ data }) => {
   const ratingArray = Array.from(new Array(Math.floor(data.rating)));
@@ -64,7 +67,7 @@ const RestaurantInfoCard = ({ data }) => {
         <Section>
           <Rating>
             {ratingArray.map((a, index) => (
-              <SvgXml xml={star} width={20} height={20} key={index} />
+              <Icon source={star} key={index} />
             ))}
           </Rating>
           <SectionEnd>
@@ -74,10 +77,10 @@ const RestaurantInfoCard = ({ data }) => {
               </Text>
             )}
             <Spacer position="left" size="large">
-              {data.isOpenNow && <Open xml={open} width={20} height={20} />}
+              {data.isOpenNow && <Icon source={open} />}
             </Spacer>
             <Spacer position="left" size="large">
-              <Image style={{ width: 15, height: 15 }} source={{ uri: data.icon }} />
+              <Icon style={{ width: 15, height: 15 }} source={{ uri: data.icon }} />
             </Spacer>
           </SectionEnd>
         </Section>
