@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 
 import styled, { useTheme } from 'styled-components/native';
 
@@ -27,9 +26,6 @@ const SpacerView = styled.View`
   ${({ variant }) => variant}
 `;
 
-// const Spacer = styled.View`
-//   ${({ position, size, theme }) => getVariant(position, size, theme)}
-// `;
 
 const Spacer = ({ position, size, children }) => {
   const theme = useTheme();

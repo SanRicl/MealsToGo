@@ -1,8 +1,8 @@
 import React from 'react';
-import { StatusBar, Text, View } from 'react-native';
+import { StatusBar, } from 'react-native';
 import styled from 'styled-components/native';
-import RestaurantList from '../components/RestaurantList';
-import SearchBar from '../components/SearchBar';
+import RestaurantList from '../components/RestaurantInfo/RestaurantList';
+import SearchBar from '../components/SearchBar/SearchBar';
 
 const SafeArea = styled.SafeAreaView`
   flex: 1;

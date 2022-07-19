@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import RestaurantInfoCard from './RestaurantInfoCard';
+import RestaurantInfoCard from '../RestaurantInfoCard/RestaurantInfoCard';
 
 const Area = styled.View`
   background: ${(props) => props.theme.colors.bg.primary};
