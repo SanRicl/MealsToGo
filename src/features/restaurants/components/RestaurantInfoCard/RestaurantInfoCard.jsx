@@ -1,52 +1,9 @@
 import React from 'react';
-import { Card } from 'react-native-paper';
-import styled from 'styled-components/native';
 import star from '../../../../../assets/star.png';
 import open from '../../../../../assets/open.png';
 import Spacer from '../../../../components/spacer/Spacer';
 import { Text } from '../../../../components/typography/Text';
-
-
-const Address = styled.Text`
-  color: ${(props) => props.theme.colors.text.primary};
-  font-family: ${(props) => props.theme.fonts.body};
-  font-size: ${(props) => props.theme.fontSizes.caption};
-`;
-
-const RestaurantCard = styled(Card)`
-  background: ${(props) => props.theme.colors.bg.primary};
-`;
-
-const RestaurantCardCover = styled(Card.Cover)`
-  background: ${(props) => props.theme.colors.bg.primary};
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const Info = styled.View`
-  padding: ${(props) => props.theme.space[3]};
-`;
-
-const Rating = styled.View`
-  flex-direction: row;
-  padding-top: ${(props) => props.theme.space[2]};
-  padding-bottom: ${(props) => props.theme.space[2]};
-`;
-const SectionEnd = styled.View`
-  flex-direction: row;
-  align-items: center;
-`;
-
-const Section = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const Icon = styled.Image`
-  width: 20px;
-  height: 20px;
-`;
-
+import { Address, RestaurantCard, RestaurantCardCover, Info, Rating, SectionEnd, Section, Icon } from './styles.js';
 
 const RestaurantInfoCard = ({ data }) => {
   const ratingArray = Array.from(new Array(Math.floor(data.rating)));
@@ -66,11 +23,7 @@ const RestaurantInfoCard = ({ data }) => {
             ))}
           </Rating>
           <SectionEnd>
-            {data.isClosedTemporarily && (
-              <Text variant="error">
-                CLOSED TEMPORARILY
-              </Text>
-            )}
+            {data.isClosedTemporarily && <Text variant="error">CLOSED TEMPORARILY</Text>}
             <Spacer position="left" size="large">
               {data.isOpenNow && <Icon source={open} />}
             </Spacer>
