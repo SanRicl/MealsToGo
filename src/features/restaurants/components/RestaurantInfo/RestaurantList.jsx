@@ -1,5 +1,6 @@
 import React from 'react';
-import styled from 'styled-components/native';
+import { FlatList } from 'react-native';
+import Spacer from '../../../../components/spacer/Spacer';
 import RestaurantInfoCard from '../RestaurantInfoCard/RestaurantInfoCard';
 import { Area } from './styles';
 
@@ -16,13 +17,66 @@ const RestaurantList = () => {
       rating: 4,
       isClosedTemporarily: true,
     },
+    {
+      name: 'Some Restaurant 2',
+      icon: 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
+      photos: [
+        'https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg',
+      ],
+      address: '100 some random street',
+      isOpenNow: true,
+      rating: 4,
+      isClosedTemporarily: true,
+    },
+    {
+      name: 'Some Restaurant 1',
+      icon: 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
+      photos: [
+        'https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg',
+      ],
+      address: '100 some random street',
+      isOpenNow: true,
+      rating: 4,
+      isClosedTemporarily: true,
+    },
+    {
+      name: 'Some Restaurant 4',
+      icon: 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
+      photos: [
+        'https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg',
+      ],
+      address: '100 some random street',
+      isOpenNow: true,
+      rating: 4,
+      isClosedTemporarily: true,
+    },
+    {
+      name: 'Some Restaurant 5',
+      icon: 'https://maps.gstatic.com/mapfiles/place_api/icons/v1/png_71/lodging-71.png',
+      photos: [
+        'https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg',
+      ],
+      address: '100 some random street',
+      isOpenNow: true,
+      rating: 4,
+      isClosedTemporarily: true,
+    },
   ];
 
   return (
     <Area>
-      {restaurant.map((item, index) => (
-        <RestaurantInfoCard data={item} key={index} />
-      ))}
+      <FlatList
+        data={restaurant}
+        renderItem={({ item }) => (
+          <>
+            <Spacer position={'bottom'} size={'large'}>
+              <RestaurantInfoCard data={item} />
+            </Spacer>
+          </>
+        )}
+        // keyExtractor={(item) => item}
+        contentContainerStyle={{ padding: 16 }}
+      />
     </Area>
   );
 };
