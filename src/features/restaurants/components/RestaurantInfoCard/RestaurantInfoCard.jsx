@@ -10,9 +10,7 @@ const RestaurantInfoCard = ({ data }) => {
   return (
     <RestaurantCard elevation={5}>
       <RestaurantCardCover
-        source={{
-          uri: 'https://www.foodiesfeed.com/wp-content/uploads/2019/06/top-view-for-box-of-2-burgers-home-made-600x899.jpg',
-        }}
+        source={data.photos}
       />
       <Info>
         <Text variant="label">{data.name}</Text>
@@ -32,7 +30,7 @@ const RestaurantInfoCard = ({ data }) => {
             </Spacer>
           </SectionEnd>
         </Section>
-        <Address>{data.address}</Address>
+        <Address>{data.vicinity}</Address>
       </Info>
     </RestaurantCard>
   );
