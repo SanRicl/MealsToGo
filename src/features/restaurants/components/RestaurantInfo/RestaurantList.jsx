@@ -1,8 +1,7 @@
 import React from 'react';
-import { FlatList } from 'react-native';
 import Spacer from '../../../../components/spacer/Spacer';
 import RestaurantInfoCard from '../RestaurantInfoCard/RestaurantInfoCard';
-import { Area } from './styles';
+import { Area, RestaurantFList } from './styles';
 
 const RestaurantList = () => {
   const restaurant = [
@@ -65,7 +64,7 @@ const RestaurantList = () => {
 
   return (
     <Area>
-      <FlatList
+      <RestaurantFList
         data={restaurant}
         renderItem={({ item }) => (
           <>
@@ -75,7 +74,6 @@ const RestaurantList = () => {
           </>
         )}
         // keyExtractor={(item) => item}
-        contentContainerStyle={{ padding: 16 }}
       />
     </Area>
   );
