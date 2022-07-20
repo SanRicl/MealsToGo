@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Spacer from '../../../../components/spacer/Spacer';
+import { RestaurantsContext } from '../../../../services/restaurant/restaurantsContext';
 import RestaurantInfoCard from '../RestaurantInfoCard/RestaurantInfoCard';
 import { Area, RestaurantFList } from './styles';
 
 const RestaurantList = () => {
+  const restaurantContext = useContext(RestaurantsContext);
+
   const restaurant = [
     {
       name: 'Some Restaurant',

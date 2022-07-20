@@ -9,6 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { RestaurantsContextProvider } from './src/services/restaurant/restaurantsContext';
 
 const Map = () => {
   return <Text>Map</Text>;
@@ -35,30 +36,32 @@ export default function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={({ route }) => ({
-              tabBarIcon: ({ focused, color, size }) => {
-                let iconName;
+        <RestaurantsContextProvider>
+          <NavigationContainer>
+            <Tab.Navigator
+              screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                  let iconName;
 
-                if (route.name === 'Restaurants') {
-                  iconName = focused ? 'md-restaurant' : 'md-restaurant-outline';
-                } else if (route.name === 'Settings') {
-                  iconName = focused ? 'settings' : 'settings-outline';
-                } else if (route.name === 'Map') {
-                  iconName = focused ? 'map' : 'map-outline';
-                }
-                return <Ionicons name={iconName} size={size} color={color} />;
-              },
-              tabBarActiveTintColor: 'tomato',
-              tabBarInactiveTintColor: 'gray',
-            })}
-          >
-            <Tab.Screen name="Restaurants" component={RestaurantScreen} />
-            <Tab.Screen name="Map" component={Map} />
-            <Tab.Screen name="Settings" component={Settings} />
-          </Tab.Navigator>
-        </NavigationContainer>
+                  if (route.name === 'Restaurants') {
+                    iconName = focused ? 'md-restaurant' : 'md-restaurant-outline';
+                  } else if (route.name === 'Settings') {
+                    iconName = focused ? 'settings' : 'settings-outline';
+                  } else if (route.name === 'Map') {
+                    iconName = focused ? 'map' : 'map-outline';
+                  }
+                  return <Ionicons name={iconName} size={size} color={color} />;
+                },
+                tabBarActiveTintColor: 'tomato',
+                tabBarInactiveTintColor: 'gray',
+              })}
+            >
+              <Tab.Screen name="Restaurants" component={RestaurantScreen} />
+              <Tab.Screen name="Map" component={Map} />
+              <Tab.Screen name="Settings" component={Settings} />
+            </Tab.Navigator>
+          </NavigationContainer>
+        </RestaurantsContextProvider>
         <ExpoStatusBar style="auto" />
       </ThemeProvider>
     </>
