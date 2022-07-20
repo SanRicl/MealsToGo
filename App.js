@@ -9,7 +9,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { restaurantRequest } from './src/services/restaurant/restaurantsService';
 
 const Map = () => {
   return <Text>Map</Text>;
