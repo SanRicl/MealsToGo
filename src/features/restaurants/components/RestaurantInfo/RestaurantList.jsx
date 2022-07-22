@@ -12,8 +12,8 @@ const RestaurantList = () => {
   return (
     <Area>
       {isLoading && (
-        <View style={{ position: 'boolean', top: '50%'}}>
-          <ActivityIndicator animating={true} color={Colors.red400} size={50}  />
+        <View style={{ position: 'absolute', top: '50%', left: '50%', right: '50%' }}>
+          <ActivityIndicator animating={true} color={Colors.red400} size={50} />
         </View>
       )}
       <RestaurantFList
