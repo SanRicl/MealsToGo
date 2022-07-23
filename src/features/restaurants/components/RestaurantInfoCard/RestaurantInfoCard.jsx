@@ -29,7 +29,7 @@ const RestaurantInfoCard = ({ data }) => {
             </Spacer>
           </SectionEnd>
         </Section>
-        <Address>{data.vicinity}</Address>
+        <Address>{data.address}</Address>
       </Info>
     </RestaurantCard>
   );
