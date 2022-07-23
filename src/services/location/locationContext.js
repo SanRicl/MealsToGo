@@ -8,26 +8,27 @@ export const LocationContextProvider = ({ children }) => {
   const [location, setLocation] = useState(null);
   const [isLoading, setIsloading] = useState(false);
   const [error, setError] = useState(null);
-  const [keyword, setKeyword] = useState('san francisco');
+  const [keyword, setKeyword] = useState('San Francisco');
 
   const onSearch = (searchKeyword) => {
     setIsloading(true);
     setKeyword(searchKeyword);
-    locationRequest(searchKeyword)
+    if (!searchKeyword.length) {
+      //dont do anything
+      return;
+    }
+    locationRequest(searchKeyword.toLowerCase())
       .then(locationTransform)
       .then((result) => {
         setIsloading(false);
         setLocation(result);
+        console.log(result);
       })
       .catch((error) => {
         setIsloading(false);
         setError(error);
       });
   };
-
-  useEffect(() => {
-    onSearch(keyword)
-  }, []);
 
   return (
     <LocationContext.Provider
