@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Searchbar } from 'react-native-paper';
 import { LocationContext } from '../../../../services/location/locationContext';
 import { SearchContainer } from './styles';
@@ -6,6 +6,10 @@ import { SearchContainer } from './styles';
 const SearchBar = () => {
   const { keyword, search } = useContext(LocationContext);
   const [searchKeyword, setSearchKeyword] = useState(keyword);
+
+  useEffect(() => {
+    search(searchKeyword);
+  }, []);
 
   return (
     <SearchContainer>
@@ -18,7 +22,6 @@ const SearchBar = () => {
         onChangeText={(text) => {
           setSearchKeyword(text);
         }}
-
       />
     </SearchContainer>
   );

@@ -6,7 +6,7 @@ import { Text } from '../../../../components/typography/Text';
 import { Address, RestaurantCard, RestaurantCardCover, Info, Rating, SectionEnd, Section, Icon } from './styles.js';
 
 const RestaurantInfoCard = ({ data }) => {
-  const ratingArray = Array.from(new Array(Math.floor(data.rating)));
+  const ratingArray = Array.from(new Array(Math.floor(data.rating)).fill(data.rating));
   return (
     <RestaurantCard elevation={5}>
       {/* problem w/ this CardCover */}
