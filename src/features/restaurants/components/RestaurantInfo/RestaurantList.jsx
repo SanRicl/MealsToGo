@@ -4,9 +4,9 @@ import { RestaurantsContext } from '../../../../services/restaurant/restaurantsC
 import RestaurantInfoCard from '../RestaurantInfoCard/RestaurantInfoCard';
 import { Area, RestaurantFList } from './styles';
 import { ActivityIndicator, Colors } from 'react-native-paper';
-import { Pressable, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 
-const RestaurantList = ({navigation}) => {
+const RestaurantList = ({ navigation }) => {
   const { isLoading, error, restaurants } = useContext(RestaurantsContext);
 
   return (
@@ -20,12 +20,11 @@ const RestaurantList = ({navigation}) => {
         data={restaurants}
         renderItem={({ item }) => (
           <>
-
-            <Pressable onPress={() => navigation.navigate('RestaurantDetail')}>
+            <TouchableOpacity onPress={() => navigation.navigate('RestaurantDetail')}>
               <Spacer position={'bottom'} size={'large'}>
                 <RestaurantInfoCard data={item} />
               </Spacer>
-            </Pressable>
+            </TouchableOpacity>
           </>
         )}
         keyExtractor={(item) => item.placeId}
