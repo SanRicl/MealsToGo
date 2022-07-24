@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
-import RestaurantScreen from '../../features/restaurants/screens/RestaurantScreen';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text } from 'react-native';
+import RestaurantsNavigator from './RestaurantsNavigator';
 
 const Map = () => {
   return <Text>Map</Text>;
@@ -36,7 +36,7 @@ const Navigation = () => {
           tabBarInactiveTintColor: 'gray',
         })}
       >
-        <Tab.Screen name="Restaurants" component={RestaurantScreen} />
+        <Tab.Screen name="Restaurants" component={RestaurantsNavigator} options={{headerShown: false}}/>
         <Tab.Screen name="Map" component={Map} />
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
