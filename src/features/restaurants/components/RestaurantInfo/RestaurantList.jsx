@@ -20,7 +20,13 @@ const RestaurantList = ({ navigation }) => {
         data={restaurants}
         renderItem={({ item }) => (
           <>
-            <TouchableOpacity onPress={() => navigation.navigate('RestaurantDetail')}>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('RestaurantDetail', {
+                  restaurant: item,
+                })
+              }
+            >
               <Spacer position={'bottom'} size={'large'}>
                 <RestaurantInfoCard data={item} />
               </Spacer>
