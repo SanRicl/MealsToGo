@@ -14,7 +14,7 @@ const Map = styled(MapView)`
 
 const MapScreen = () => {
   const { location } = useContext(LocationContext);
-  const { restaurants = [] } = useContext(RestaurantsContext);
+  const { restaurants = []} = useContext(RestaurantsContext);
 
   const [latDelta, setLatDelta] = useState(0);
 
@@ -32,7 +32,11 @@ const MapScreen = () => {
       <SearchBar />
       <Map region={{ latitude: lat, longitude: lng, latitudeDelta: latDelta, longitudeDelta: 0.02 }}>
         {restaurants.map((restaurant, index) => (
-          <MapView.Marker key={index}></MapView.Marker>
+          <MapView.Marker
+            key={index}
+            title={restaurant.name}
+            coordinate={{ latitude: restaurant.geometry.location.lat, longitude: restaurant.geometry.location.lng }}
+          />
         ))}
       </Map>
     </>
