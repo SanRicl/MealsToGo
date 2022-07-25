@@ -4,10 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Text } from 'react-native';
 import RestaurantsNavigator from './RestaurantsNavigator';
-
-const Map = () => {
-  return <Text>Map</Text>;
-};
+import MapScreen from '../../features/map/screens/MapScreen';
 
 const Settings = () => {
   return <Text>Settings</Text>;
@@ -36,8 +33,8 @@ const Navigation = () => {
           tabBarInactiveTintColor: 'gray',
         })}
       >
-        <Tab.Screen name="Restaurants" component={RestaurantsNavigator} options={{headerShown: false}}/>
-        <Tab.Screen name="Map" component={Map} />
+        <Tab.Screen name="Restaurants" component={RestaurantsNavigator} options={{ headerShown: false }} />
+        <Tab.Screen name="Map" component={MapScreen} options={{ headerShown: false }}/>
         <Tab.Screen name="Settings" component={Settings} />
       </Tab.Navigator>
     </NavigationContainer>

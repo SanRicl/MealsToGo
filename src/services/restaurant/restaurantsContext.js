@@ -19,10 +19,12 @@ export const RestaurantsContextProvider = ({ children }) => {
       restaurantsRequest(loc)
         .then(restaurantsTransform)
         .then((results) => {
+          setError(null);
           setIsloading(false);
           setRestaurants(results);
         })
         .catch((err) => {
+          setRestaurants([]);
           setIsloading(false);
           setError(err);
         });
