@@ -4,12 +4,14 @@ import open from '../../../../../assets/open.png';
 import Spacer from '../../../../components/spacer/Spacer';
 import { Text } from '../../../../components/typography/Text';
 import { Address, RestaurantCard, RestaurantCardCover, Info, Rating, SectionEnd, Section, Icon } from './styles.js';
+import Favourite from '../../../../components/favourites/Favourite';
 
 const RestaurantInfoCard = ({ data }) => {
   const ratingArray = Array.from(new Array(Math.floor(data.rating)));
   return (
     <RestaurantCard elevation={5}>
-      <RestaurantCardCover source={{uri: data.photos[0]}} />
+      <Favourite restaurant={data} />
+      <RestaurantCardCover source={{ uri: data.photos[0] }} />
       <Info>
         <Text variant="label">{data.name}</Text>
         <Section>
