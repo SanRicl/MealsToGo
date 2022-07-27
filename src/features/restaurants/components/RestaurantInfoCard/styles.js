@@ -9,7 +9,7 @@ export const Address = styled.Text`
 
 export const RestaurantCard = styled(Card)`
   background: ${(props) => props.theme.colors.bg.primary};
- 
+
 `;
 
 export const RestaurantCardCover = styled(Card.Cover)`

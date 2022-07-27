@@ -22,8 +22,8 @@ const error = (theme) => `
 `;
 
 const caption = (theme) => `
-  font-family: ${theme.fonts.heading};
-  font-size: ${theme.fontSizes.body};
+  font-family: ${(props) => props.theme.fonts.body};
+  font-size: ${(props) => props.theme.fontSizes.caption};
   font-weight: ${theme.fontWeights.medium};
 `;
 
