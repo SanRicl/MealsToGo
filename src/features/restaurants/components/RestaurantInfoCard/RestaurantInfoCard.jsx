@@ -9,8 +9,7 @@ const RestaurantInfoCard = ({ data }) => {
   const ratingArray = Array.from(new Array(Math.floor(data.rating)));
   return (
     <RestaurantCard elevation={5}>
-      {/* problem w/ this CardCover */}
-      <RestaurantCardCover source={data.photos} />
+      <RestaurantCardCover source={{uri: data.photos[0]}} />
       <Info>
         <Text variant="label">{data.name}</Text>
         <Section>
