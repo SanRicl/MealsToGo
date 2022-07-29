@@ -23,7 +23,7 @@ const MapScreen = ({navigation}) => {
 
   useEffect(() => {
     const northeastLat = viewport.northeast.lat;
-    const southwestLat = viewport.southwest.lat;  
+    const southwestLat = viewport.southwest.lat;
 
     setLatDelta(northeastLat - southwestLat);
   }, [location, viewport]);
@@ -39,7 +39,7 @@ const MapScreen = ({navigation}) => {
             coordinate={{ latitude: restaurant.geometry.location.lat, longitude: restaurant.geometry.location.lng }}
           >
             <MapView.Callout onPress={() => navigation.navigate("RestaurantDetail", {restaurant})}>
-              <MapCallout restaurant={restaurant} />
+              <MapCallout restaurant={restaurant} isMap/>
             </MapView.Callout>
           </MapView.Marker>
         ))}
