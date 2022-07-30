@@ -8,6 +8,9 @@ import { RestaurantsContextProvider } from './src/services/restaurant/restaurant
 import { LocationContextProvider } from './src/services/location/locationContext';
 import { FavouritesContextProvider } from './src/services/favourites/favouritesContext';
 
+import { initializeApp } from 'firebase/app';
+
+
 import Navigation from './src/infrastructure/navigation/AppNavigator';
 
 export default function App() {
@@ -21,6 +24,19 @@ export default function App() {
   if (!latoLoaded || !oswaldLoaded) {
     return null;
   }
+
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyABDSrizCTeDDoOGatDfmDx2MhMkrUFWWU",
+    authDomain: "mealstogo-a8ed8.firebaseapp.com",
+    projectId: "mealstogo-a8ed8",
+    storageBucket: "mealstogo-a8ed8.appspot.com",
+    messagingSenderId: "324550778714",
+    appId: "1:324550778714:web:236a50e48e9b6af8ff9d63"
+  };
+
+  initializeApp(firebaseConfig);
+
 
   return (
     <>
