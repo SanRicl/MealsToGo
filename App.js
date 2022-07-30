@@ -8,8 +8,8 @@ import { RestaurantsContextProvider } from './src/services/restaurant/restaurant
 import { LocationContextProvider } from './src/services/location/locationContext';
 import { FavouritesContextProvider } from './src/services/favourites/favouritesContext';
 
-import Navigation from './src/infrastructure/navigation/AppNavigator';
 import { AuthenticationContextProvider } from './src/services/authentication/authenticationContext';
+import Navigation from './src/infrastructure/navigation';
 
 export default function App() {
   const [oswaldLoaded] = useOswald({
