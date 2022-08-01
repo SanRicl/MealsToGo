@@ -31,3 +31,11 @@ export const AuthButton = styled(Button).attrs({
 })`
   padding: ${(props) => props.theme.space[2]};
 `;
+
+
+export const KeyboardArea = styled.KeyboardAvoidingView`
+  width: 100%;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+`;
