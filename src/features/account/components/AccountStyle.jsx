@@ -4,6 +4,7 @@ import styled from 'styled-components/native';
 import { colors } from '../../../infrastructure/theme/colors';
 import { Button } from 'react-native-paper';
 
+
 export const AccountBackground = styled.ImageBackground.attrs({
   source: require('../../../../assets/home_bg.jpg'),
 })`
