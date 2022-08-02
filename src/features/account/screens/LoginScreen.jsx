@@ -4,7 +4,9 @@ import {
   AccountContainer,
   AccountCover,
   AuthButton,
+  ErrorContainer,
   KeyboardArea,
+  Title,
 } from '../components/AccountStyle';
 
 import { Text } from '../../../components/typography/Text';
@@ -14,7 +16,7 @@ import { AuthenticationContext } from '../../../services/authentication/authenti
 import { TextInput } from 'react-native-paper';
 import { Platform } from 'react-native';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { onLogin, error } = useContext(AuthenticationContext);
@@ -23,6 +25,7 @@ const LoginScreen = () => {
     <AccountBackground>
       <AccountCover />
       <KeyboardArea behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        <Title>Meals To Go</Title>
         <AccountContainer style={{ width: '90%' }}>
           <TextInput
             label="Email"
@@ -41,9 +44,9 @@ const LoginScreen = () => {
             onChangeText={(p) => setPassword(p)}
           />
           {error && (
-            <Spacer size="large">
+            <ErrorContainer>
               <Text variant="error">{error}</Text>
-            </Spacer>
+            </ErrorContainer>
           )}
 
           <Spacer size="large" />
@@ -51,6 +54,10 @@ const LoginScreen = () => {
             Login
           </AuthButton>
         </AccountContainer>
+        <Spacer size="large" />
+        <AuthButton mode="contained" onPress={() => navigation.goBack()}>
+          Back
+        </AuthButton>
       </KeyboardArea>
     </AccountBackground>
   );
