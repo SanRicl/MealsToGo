@@ -14,7 +14,7 @@ import { AuthenticationContext } from '../../../services/authentication/authenti
 import { TextInput } from 'react-native-paper';
 import { Platform } from 'react-native';
 
-const LoginScreen = ({ navigation }) => {
+const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { onLogin, error } = useContext(AuthenticationContext);
