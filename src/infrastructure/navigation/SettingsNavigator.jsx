@@ -10,7 +10,7 @@ const SettingsNavigator = () => {
       screenOptions={{
         cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
         headerMode: 'screen',
-        headerShown: false,
+        
       }}
     >
       <SettingsStack.Screen
