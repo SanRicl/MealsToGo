@@ -23,4 +23,7 @@ export const registerRequest = async (email, password) => {
   return registeredUser;
 };
 
+export const logoutRequest = async () => {
+  signOut(auth);
+};
 export default loginRequest;
