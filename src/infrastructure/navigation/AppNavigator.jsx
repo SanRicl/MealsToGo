@@ -5,11 +5,11 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import RestaurantsNavigator from './RestaurantsNavigator';
 
 import MapScreen from '../../features/map/screens/MapScreen';
-import SettingsScreen from '../../features/settings/screens/SettingsScreen';
 
 import { RestaurantsContextProvider } from '../../services/restaurant/restaurantsContext';
 import { LocationContextProvider } from '../../services/location/locationContext';
 import { FavouritesContextProvider } from '../../services/favourites/favouritesContext';
+import SettingsNavigator from './SettingsNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -38,7 +38,7 @@ const AppNavigation = () => {
           >
             <Tab.Screen name="Restaurants" component={RestaurantsNavigator} options={{ headerShown: false }} />
             <Tab.Screen name="Map" component={MapScreen} options={{ headerShown: false }} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
+            <Tab.Screen name="Settings" component={SettingsNavigator} options={{ headerShown: false }}/>
           </Tab.Navigator>
         </RestaurantsContextProvider>
       </LocationContextProvider>

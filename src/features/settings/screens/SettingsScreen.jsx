@@ -14,14 +14,14 @@ const SettingsScreen = ({ navigation }) => {
           style={{ padding: 16 }}
           title="Favourites"
           description="View your favourites"
-          left={(props) => (
-            <List.Icon {...props} color="black" icon="heart" onPress={() => navigation.navigate('Favourites')} />
-          )}
+          left={(props) => <List.Icon {...props} color="black" icon="heart" />}
+          onPress={() => null}
         />
         <List.Item
           style={{ padding: 16 }}
-          title="logout"
-          left={(props) => <List.Icon {...props} color="black" icon="door" onPress={() => onLogout()} />}
+          title="Logout"
+          left={(props) => <List.Icon {...props} color="black" icon="door" />}
+          onPress={onLogout}
         />
       </List.Section>
     </SafeArea>
