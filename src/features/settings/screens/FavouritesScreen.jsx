@@ -13,7 +13,7 @@ const FavouritesScreen = ({ navigation }) => {
     <Area>
       {!favourites.length ? (
         <EmptyWarningContainer>
-          <Text>There's no favourites</Text>
+          <Text>No favourites yet</Text>
         </EmptyWarningContainer>
       ) : (
         <RestaurantFList

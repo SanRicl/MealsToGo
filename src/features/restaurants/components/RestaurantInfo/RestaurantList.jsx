@@ -5,9 +5,10 @@ import RestaurantInfoCard from '../RestaurantInfoCard/RestaurantInfoCard';
 import { Area, RestaurantFList } from './styles';
 import { ActivityIndicator, Colors } from 'react-native-paper';
 import { TouchableOpacity, View } from 'react-native';
+import FadeInView from '../../../../components/animations/FadeAnimations';
 
 const RestaurantList = ({ navigation }) => {
-  const { isLoading, error, restaurants } = useContext(RestaurantsContext);
+  const { isLoading, restaurants } = useContext(RestaurantsContext);
 
   return (
     <Area>
@@ -20,17 +21,19 @@ const RestaurantList = ({ navigation }) => {
         data={restaurants}
         renderItem={({ item }) => (
           <>
-            <TouchableOpacity
-              onPress={() =>
-                navigation.navigate('RestaurantDetail', {
-                  restaurant: item,
-                })
-              }
-            >
-              <Spacer position={'bottom'} size={'large'}>
-                <RestaurantInfoCard data={item} />
-              </Spacer>
-            </TouchableOpacity>
+            <FadeInView>
+              <TouchableOpacity
+                onPress={() =>
+                  navigation.navigate('RestaurantDetail', {
+                    restaurant: item,
+                  })
+                }
+              >
+                <Spacer position={'bottom'} size={'large'}>
+                  <RestaurantInfoCard data={item} />
+                </Spacer>
+              </TouchableOpacity>
+            </FadeInView>
           </>
         )}
         keyExtractor={(item) => item.placeId}
