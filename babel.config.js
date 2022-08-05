@@ -7,9 +7,6 @@ module.exports = function (api) {
         plugins: [
           'react-native-paper/babel',
           'babel-plugin-inline-import',
-          {
-            extensions: ['.svg'],
-          },
         ],
       },
     },
