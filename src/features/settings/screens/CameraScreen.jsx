@@ -1,8 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { Camera, CameraType } from 'expo-camera';
 import { Button, Text } from 'react-native';
 import styled from 'styled-components/native';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { AuthenticationContext } from '../../../services/authentication/authenticationContext';
 
 const View = styled.View`
   flex: 1;
@@ -43,25 +45,26 @@ const ButtonPictureWrapper = styled.View`
   width: 25%;
   background: transparent;
   position: absolute;
-  bottom: 10;
+  bottom: 2%;
   align-self: center;
 `;
 
-const CameraScreen = () => {
+const CameraScreen = ({ navigation }) => {
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
   const cameraRef = useRef();
 
+  const { user } = useContext(AuthenticationContext);
+
   const snap = async () => {
     const photo = await cameraRef.current.takePictureAsync();
-
-    console.log(photo);
+    AsyncStorage.setItem(`${user.uid}--photo`, photo.uri);
+    navigation.goBack();
   };
 
   if (!permission) return <View />;
 
   if (!permission.granted) {
-    // Camera permissions are not granted yet
     return (
       <View>
         <Text style={{ textAlign: 'center' }}>We need your permission to show the camera</Text>
@@ -76,7 +79,7 @@ const CameraScreen = () => {
 
   return (
     <View>
-      <ProfileCamera type={type} ref={(camera) => (cameraRef.current = camera)}>
+      <ProfileCamera type={type} ref={(camera) => (cameraRef.current = camera)} ratio={'16:9'}>
         <ButtonCameraWrapper>
           <TouchableIconView onPress={toggleCameraType}>
             <IconCamera name="camera-reverse-outline" size={34} color="white" />
