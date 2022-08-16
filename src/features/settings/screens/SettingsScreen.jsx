@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { List, Avatar } from 'react-native-paper';
 import styled from 'styled-components/native';
+import { TouchableOpacity } from 'react-native';
 
 import { SafeArea } from '../../../components/utility/SafeArea';
 import { AuthenticationContext } from '../../../services/authentication/authenticationContext';
@@ -20,18 +21,20 @@ const SettingsScreen = ({ navigation }) => {
 
   return (
     <SafeArea>
-      <AvatarContaier>
-        <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD" />
-        <Spacer position="top" size="large">
-          <Text variant="label">{user.email}</Text>
-        </Spacer>
-      </AvatarContaier>
+      <TouchableOpacity onPress={() => navigation.navigate('Camera')}>
+        <AvatarContaier>
+          <Avatar.Icon size={180} icon="human" backgroundColor="#2182BD" />
+          <Spacer position="top" size="large">
+            <Text variant="label">{user.email}</Text>
+          </Spacer>
+        </AvatarContaier>
+      </TouchableOpacity>
       <List.Section>
         <SettingsItem
           title="Favourites"
           description="View your favourites"
           left={(props) => <List.Icon {...props} color="black" icon="heart" />}
-          onPress={() => navigation.navigate("Favourites")}
+          onPress={() => navigation.navigate('Favourites')}
         />
         <SettingsItem
           title="Logout"

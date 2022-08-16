@@ -6,24 +6,14 @@ import AccountScreen from '../../features/account/screens/AccountScreen';
 import RegisterScreen from '../../features/account/screens/RegisterScreen';
 import LoginScreen from '../../features/account/screens/LoginScreen';
 
-
 const Stack = createStackNavigator();
 
 const AccountNavigator = () => {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }} >
-      <Stack.Screen
-        name="Main"
-        component={AccountScreen}
-      />
-       <Stack.Screen
-        name="Login"
-        component={LoginScreen}
-      />
-      <Stack.Screen
-        name="Register"
-        component={RegisterScreen}
-      />
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Main" component={AccountScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Register" component={RegisterScreen} />
     </Stack.Navigator>
   );
 };
