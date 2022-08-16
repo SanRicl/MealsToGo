@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Camera, CameraType } from 'expo-camera';
 import { Button, Text } from 'react-native';
 import styled from 'styled-components/native';
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 
 const View = styled.View`
   flex: 1;
@@ -12,7 +12,7 @@ const View = styled.View`
 const ProfileCamera = styled(Camera)`
   flex: 1;
 `;
-const ButtonWrapper = styled.View`
+const ButtonCameraWrapper = styled.View`
   width: 11%;
   margin: 5px;
   background: transparent;
@@ -20,18 +20,43 @@ const ButtonWrapper = styled.View`
   right: 0;
 `;
 
+const IconCamera = styled(Ionicons)`
+  padding: 5px;
+  align-self: center;
+`;
+
 const TouchableIconView = styled.TouchableOpacity`
   border-radius: 50%;
   background: #00000034;
 `;
-const Icon = styled(Ionicons)`
-  padding: 5px;
+
+// =================================================================
+
+const TouchableIconPictureView = styled.TouchableOpacity``;
+
+const IconPicture = styled(Ionicons)`
+  padding: 4px;
+  align-self: center;
+`;
+
+const ButtonPictureWrapper = styled.View`
+  width: 25%;
+  background: transparent;
+  position: absolute;
+  bottom: 10;
   align-self: center;
 `;
 
 const CameraScreen = () => {
   const [type, setType] = useState(CameraType.back);
   const [permission, requestPermission] = Camera.useCameraPermissions();
+  const cameraRef = useRef();
+
+  const snap = async () => {
+    const photo = await cameraRef.current.takePictureAsync();
+
+    console.log(photo);
+  };
 
   if (!permission) return <View />;
 
@@ -51,12 +76,17 @@ const CameraScreen = () => {
 
   return (
     <View>
-      <ProfileCamera type={type}>
-        <ButtonWrapper>
+      <ProfileCamera type={type} ref={(camera) => (cameraRef.current = camera)}>
+        <ButtonCameraWrapper>
           <TouchableIconView onPress={toggleCameraType}>
-            <Icon name="camera-reverse-outline" size={34} color="white" />
+            <IconCamera name="camera-reverse-outline" size={34} color="white" />
           </TouchableIconView>
-        </ButtonWrapper>
+        </ButtonCameraWrapper>
+        <ButtonPictureWrapper>
+          <TouchableIconPictureView onPress={snap}>
+            <IconPicture name="md-radio-button-on-sharp" size={95} color="white" />
+          </TouchableIconPictureView>
+        </ButtonPictureWrapper>
       </ProfileCamera>
     </View>
   );
